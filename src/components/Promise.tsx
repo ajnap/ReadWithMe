@@ -83,7 +83,7 @@ export function Promise() {
               }`}
             >
               {beat.image && (
-                <div className="card-pop mb-4 overflow-hidden bg-white">
+                <div className="card-pop mb-4 hidden overflow-hidden bg-white sm:block">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={beat.image} alt="" className="h-auto w-full" />
                 </div>
