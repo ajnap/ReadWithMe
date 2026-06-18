@@ -5,14 +5,16 @@ import { motion, useInView } from "motion/react";
 import { StarDoodle, RocketDoodle, HeartDoodle } from "./Doodle";
 import { Confetti } from "./Confetti";
 import { LockedButton } from "./LockedButton";
+import type { CharacterOption } from "@/lib/commerce";
 
 // ⚠️ INTEGRATION POINT (character builder / Shopify) ⚠️
 // This section is a PREVIEW TEASER only — the name input + hero picker update
 // local state to render the preview card; nothing is submitted anywhere.
-// `accents` is PLACEHOLDER data. Replace with the real character options
+// `accents` is PLACEHOLDER data (typed against the real CharacterOption
+// contract in lib/commerce.ts). Replace with the real character options
 // (likely Shopify product/variant data) and wire the CTA below
-// (currently a <LockedButton> "Coming soon") to real cart/checkout navigation.
-const accents = [
+// (currently a <LockedButton> "Coming soon") to commerce.startCheckout().
+const accents: CharacterOption[] = [
   { name: "Leo", color: "#5b9bff", emoji: "🦁" },
   { name: "Mia", color: "#ff7eb6", emoji: "🦄" },
   { name: "Theo", color: "#ffc012", emoji: "🚀" },
