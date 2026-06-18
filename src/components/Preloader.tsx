@@ -24,7 +24,6 @@ export function Preloader() {
   // Start visible so the page never flashes before the intro on first load.
   const [show, setShow] = useState(true);
   const [burst, setBurst] = useState(false);
-  const animate = useRef(true); // whether the exit animates (vs instant)
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
@@ -35,7 +34,6 @@ export function Preloader() {
 
     const play = () => {
       clearTimers();
-      animate.current = true;
       setBurst(false);
       setShow(true);
       timers.current.push(setTimeout(() => setBurst(true), BURST_MS));
@@ -59,12 +57,8 @@ export function Preloader() {
           key="preloader"
           className="fixed inset-0 z-[120] flex items-center justify-center overflow-hidden bg-gradient-to-b from-rwm-sky via-rwm-blue to-rwm-blue-deep"
           initial={{ y: 0 }}
-          exit={animate.current ? { y: "-100%" } : { opacity: 0 }}
-          transition={
-            animate.current
-              ? { duration: 0.6, ease: [0.76, 0, 0.24, 1] }
-              : { duration: 0 }
-          }
+          exit={{ y: "-100%" }}
+          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
         >
           <Confetti fire={burst} />
 

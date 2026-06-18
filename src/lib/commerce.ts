@@ -33,6 +33,7 @@ export type ReaderOrder = {
  *   3. Redirect the browser to the returned `cart.checkoutUrl`.
  * Then replace the <LockedButton> in `BuilderTeaser.tsx` with a call to this.
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function startCheckout(_order: ReaderOrder): Promise<never> {
   throw new Error(
     "startCheckout is not implemented yet — see docs/INTEGRATION.md",
