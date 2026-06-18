@@ -10,6 +10,7 @@ import {
 } from "motion/react";
 import { includedItems, type IncludedItem } from "@/lib/content";
 import { BookDoodle, StarDoodle, HeartDoodle, SunDoodle } from "./Doodle";
+import { LockedButton } from "./LockedButton";
 
 const LEAD = 0.06;
 const TAIL = 0.06;
@@ -185,12 +186,12 @@ export function IncludedBook() {
             <p className="mt-3 text-base font-semibold text-white/90">
               Ready to put your child on the cover?
             </p>
-            <a
-              href="#build"
-              className="btn-pop mt-6 bg-rwm-yellow px-6 py-3 text-base text-rwm-ink"
+            <LockedButton
+              wrapperClassName="mt-6"
+              className="btn-pop bg-rwm-yellow px-6 py-3 text-base text-rwm-ink"
             >
-              Build Your Reader →
-            </a>
+              Build Your Reader
+            </LockedButton>
           </div>
 
           <Spiral />

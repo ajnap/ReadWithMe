@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { LockedButton } from "./LockedButton";
 
 const links = [
   { href: "#how", label: "How it works" },
@@ -50,12 +51,9 @@ export function Nav() {
           ))}
         </div>
 
-        <a
-          href="#build"
-          className="btn-pop bg-rwm-yellow px-5 py-2.5 text-sm text-rwm-ink sm:text-base"
-        >
+        <LockedButton className="btn-pop bg-rwm-yellow px-5 py-2.5 text-sm text-rwm-ink sm:text-base">
           Build Your Reader
-        </a>
+        </LockedButton>
       </nav>
     </header>
   );
