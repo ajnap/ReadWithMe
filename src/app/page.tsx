@@ -1,8 +1,8 @@
+import { Preloader } from "@/components/Preloader";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
-import { HowItWorks } from "@/components/HowItWorks";
-import { Promise as PromiseSection } from "@/components/Promise";
+import { Journey } from "@/components/Journey";
 import { Features } from "@/components/Features";
 import { IncludedBook } from "@/components/IncludedBook";
 import { Testimonials } from "@/components/Testimonials";
@@ -13,11 +13,11 @@ import { Footer } from "@/components/Footer";
 export default function Home() {
   return (
     <main className="w-full">
+      <Preloader />
       <Nav />
       <Hero />
       <Marquee />
-      <HowItWorks />
-      <PromiseSection />
+      <Journey />
       <Features />
       <IncludedBook />
       <Testimonials />

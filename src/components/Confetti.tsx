@@ -28,7 +28,14 @@ const pieces = Array.from({ length: N }, (_, i) => {
   };
 });
 
-export function Confetti({ fire }: { fire: boolean }) {
+export function Confetti({
+  fire,
+  origin = "top-[40%]",
+}: {
+  fire: boolean;
+  // Tailwind top-* class for where the burst originates within its container.
+  origin?: string;
+}) {
   if (!fire) return null;
   return (
     <div
@@ -52,7 +59,7 @@ export function Confetti({ fire }: { fire: boolean }) {
             ease: "easeOut",
             times: [0, 0.12, 0.5, 1],
           }}
-          className="absolute left-1/2 top-[40%]"
+          className={`absolute left-1/2 ${origin}`}
           style={{
             width: p.size,
             height: p.size,

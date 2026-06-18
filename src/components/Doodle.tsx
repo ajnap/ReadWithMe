@@ -68,3 +68,18 @@ export function RocketDoodle({ className = "", size = 28 }: DoodleProps) {
 // Ordered set used by the marquee + scattered decoration so the same shape
 // never repeats back-to-back.
 export const doodleSet = [BookDoodle, StarDoodle, HeartDoodle, CrayonDoodle, SunDoodle, RocketDoodle];
+
+// The pencil that "draws" the journey line — also used as the scroll cue in the
+// hero so it reads as a recurring character. Tip is at the bottom-center.
+export function Pencil({ size = 28, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg width={size} height={size * 2} viewBox="0 0 24 48" fill="none" aria-hidden className={className}>
+      <rect x="7" y="2" width="10" height="6" rx="2" fill="#ff7eb6" stroke="#15233b" strokeWidth="1.6" />
+      <rect x="7" y="7" width="10" height="3" fill="#cbd5e1" stroke="#15233b" strokeWidth="1.6" />
+      <rect x="7" y="9.5" width="10" height="25" fill="#ffc012" stroke="#15233b" strokeWidth="1.6" />
+      <line x1="12" y1="11" x2="12" y2="33" stroke="#15233b" strokeWidth="1" opacity="0.4" />
+      <path d="M7 34h10l-5 9-5-9Z" fill="#f2c98a" stroke="#15233b" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M10.5 39.3l1.5 3.7 1.5-3.7-1.5-1-1.5 1Z" fill="#15233b" />
+    </svg>
+  );
+}

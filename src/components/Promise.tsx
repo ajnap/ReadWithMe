@@ -1,8 +1,13 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
-import { BookDoodle } from "./Doodle";
+import { useRef, useState } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+} from "motion/react";
+import { Confetti } from "./Confetti";
 import { stats } from "@/lib/content";
 
 type Beat = {
@@ -37,9 +42,23 @@ export function Promise() {
     target: sectionRef,
     offset: ["start center", "end center"],
   });
-  // a star token travels down the dashed spine
+  // the superhero flies down the dashed spine with a gentle weave
   const tokenY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const tokenRotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
+  const tokenX = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.4, 0.6, 0.8, 1],
+    [0, -46, 30, -30, 46, 0],
+  );
+  const tokenRotate = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.4, 0.6, 0.8, 1],
+    [-8, 10, -8, 10, -8, 0],
+  );
+  // fire the confetti finale once the hero reaches the bottom of the spine
+  const [arrived, setArrived] = useState(false);
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v > 0.93) setArrived(true);
+  });
 
   return (
     <section
@@ -60,14 +79,17 @@ export function Promise() {
       <div className="relative mx-auto mt-20 max-w-4xl">
         {/* dashed spine */}
         <div className="absolute left-1/2 top-0 h-full -translate-x-1/2 border-l-[3px] border-dashed border-white/40" />
-        {/* traveling token */}
+        {/* traveling superhero */}
         <motion.div
-          style={{ top: tokenY, rotate: tokenRotate }}
+          style={{ top: tokenY }}
           className="absolute left-1/2 z-10 -translate-x-1/2"
         >
-          <span className="block rounded-full border-[3px] border-rwm-ink bg-rwm-yellow p-2 shadow-[0_3px_0_rgba(21,35,59,1)]">
-            <BookDoodle size={30} />
-          </span>
+          <motion.span
+            style={{ x: tokenX, rotate: tokenRotate }}
+            className="flex h-12 w-12 items-center justify-center rounded-full border-[3px] border-rwm-ink bg-rwm-yellow text-2xl shadow-[0_3px_0_rgba(21,35,59,1)]"
+          >
+            🦸
+          </motion.span>
         </motion.div>
 
         <div className="flex flex-col gap-24">
@@ -98,6 +120,9 @@ export function Promise() {
           ))}
         </div>
       </div>
+
+      {/* confetti finale when the hero lands at the bottom of the spine */}
+      <Confetti fire={arrived} origin="top-[68%]" />
 
       {/* stat band */}
       <motion.div
