@@ -52,9 +52,9 @@ export function Hero() {
 
           <p className="mx-auto mt-6 max-w-xl text-lg font-semibold text-white/95 md:mx-0">
             Read With Me is a personalized program from two veteran kindergarten
-            teachers. Just <strong>15 minutes a day</strong> takes kids to a
-            1st-grade reading level — with their own name and face in every
-            lesson.
+            teachers, built for <strong>beginning readers ages 3 and up</strong>.
+            Just 15 minutes a day takes kids to a 1st-grade reading level — with
+            their own name and face in every lesson.
           </p>
 
           {/* Hero CTA buttons hidden for now (nav "Build Your Reader" remains).

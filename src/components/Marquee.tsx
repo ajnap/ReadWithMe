@@ -3,6 +3,7 @@ import { doodleSet } from "./Doodle";
 const phrases = [
   "Personalized for your child",
   "Just 15 minutes a day",
+  "For beginning readers, ages 3+",
   "Classroom-proven",
   "60 guided lessons",
   "Built by real teachers",
