@@ -1,26 +1,87 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Brand palette */
+@theme {
+  --color-rwm-blue: #2767f4;
+  --color-rwm-blue-deep: #1742b8;
+  --color-rwm-sky: #38b6ff;
+  --color-rwm-red: #ff3b2e;
+  --color-rwm-yellow: #ffc012;
+  --color-rwm-cream: #fff7e9;
+  --color-rwm-ink: #15233b;
 }
 
+/* Fonts come from next/font (CSS vars set on <html>) */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fredoka);
+  --font-body: var(--font-nunito);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #2767f4;
+  --foreground: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
+
+/* Bubble-letter treatment that echoes the logo */
+.bubble {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  color: #fff;
+  -webkit-text-stroke: 3px var(--color-rwm-ink);
+  paint-order: stroke fill;
+  text-shadow: 0 6px 0 rgba(21, 35, 59, 0.22);
+}
+.bubble-sm {
+  -webkit-text-stroke: 2px var(--color-rwm-ink);
+  text-shadow: 0 3px 0 rgba(21, 35, 59, 0.18);
+}
+
+/* Chunky pop button */
+.btn-pop {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 600;
+  border: 3px solid var(--color-rwm-ink);
+  border-radius: 9999px;
+  box-shadow: 0 5px 0 var(--color-rwm-ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn-pop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--color-rwm-ink);
+}
+.btn-pop:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--color-rwm-ink);
+}
+
+/* Card with the same playful outline */
+.card-pop {
+  border: 3px solid var(--color-rwm-ink);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 0 rgba(21, 35, 59, 0.9);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
