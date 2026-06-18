@@ -57,7 +57,9 @@ export function Hero() {
             lesson.
           </p>
 
-          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row md:items-start">
+          {/* Hero CTA buttons hidden for now (nav "Build Your Reader" remains).
+              To restore: change "hidden" back to "flex". */}
+          <div className="mt-8 hidden flex-col items-center gap-4 sm:flex-row md:items-start">
             <a
               href="#build"
               className="btn-pop bg-rwm-yellow px-8 py-4 text-lg text-rwm-ink"
@@ -118,7 +120,7 @@ export function Hero() {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.6, repeat: Infinity }}
-        className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 text-center sm:block"
+        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-center"
       >
         <p className="text-sm font-bold text-white/80">scroll to read on</p>
         <p className="text-2xl text-white/80">↓</p>
