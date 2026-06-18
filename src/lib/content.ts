@@ -68,7 +68,7 @@ export const stats = [
   { value: "60", label: "guided lessons" },
   { value: "50+", label: "years teaching" },
   { value: "15", label: "minutes a day" },
-  { value: "1st", label: "grade reading level" },
+  { value: "3+", label: "ages & up" },
 ];
 
 // The "why it's different" pillars (sourced from the brand's WhyRWM material).
