@@ -120,7 +120,7 @@ export function Hero() {
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.6, repeat: Infinity }}
-        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-center"
+        className="absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 text-center sm:block"
       >
         <p className="text-sm font-bold text-white/80">scroll to read on</p>
         <p className="text-2xl text-white/80">↓</p>
