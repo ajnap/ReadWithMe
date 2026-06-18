@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 import { StarDoodle, RocketDoodle, HeartDoodle } from "./Doodle";
 import { Confetti } from "./Confetti";
+import { LockedButton } from "./LockedButton";
 
 const accents = [
   { name: "Leo", color: "#5b9bff", emoji: "🦁" },
@@ -75,9 +76,8 @@ export function BuilderTeaser() {
             on the <span className="text-rwm-yellow">cover</span>.
           </h2>
           <p className="mt-4 max-w-md text-lg font-semibold text-white/90 md:mx-0">
-            Type their name and pick their hero. Their personalized program
-            ships in days — and checkout is the same secure Shopify cart you
-            already trust.
+            Type their name and pick their hero to preview their personalized
+            program. Full ordering is launching soon.
           </p>
 
           <label className="mt-8 block text-sm font-extrabold uppercase tracking-wide text-white/80">
@@ -110,14 +110,11 @@ export function BuilderTeaser() {
           </div>
 
           <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row md:items-start">
-            <a
-              href="#"
-              className="btn-pop bg-rwm-yellow px-8 py-4 text-lg text-rwm-ink"
-            >
-              Continue to checkout · $149
-            </a>
+            <LockedButton className="btn-pop bg-rwm-yellow px-8 py-4 text-lg text-rwm-ink">
+              Join the waitlist
+            </LockedButton>
             <span className="text-sm font-bold text-white/70">
-              🔒 Secure checkout via Shopify
+              ✨ Launching soon
             </span>
           </div>
         </div>
