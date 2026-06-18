@@ -6,6 +6,12 @@ import { StarDoodle, RocketDoodle, HeartDoodle } from "./Doodle";
 import { Confetti } from "./Confetti";
 import { LockedButton } from "./LockedButton";
 
+// ⚠️ INTEGRATION POINT (character builder / Shopify) ⚠️
+// This section is a PREVIEW TEASER only — the name input + hero picker update
+// local state to render the preview card; nothing is submitted anywhere.
+// `accents` is PLACEHOLDER data. Replace with the real character options
+// (likely Shopify product/variant data) and wire the CTA below
+// (currently a <LockedButton> "Coming soon") to real cart/checkout navigation.
 const accents = [
   { name: "Leo", color: "#5b9bff", emoji: "🦁" },
   { name: "Mia", color: "#ff7eb6", emoji: "🦄" },
