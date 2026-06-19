@@ -105,7 +105,7 @@ export function Journey() {
       <div ref={trackRef} className="relative mx-auto mt-20 max-w-4xl">
         {/* the drawn curve */}
         <svg
-          className="pointer-events-none absolute left-0 top-0 z-0"
+          className="pointer-events-none absolute left-0 top-0 z-0 hidden sm:block"
           width={size.w}
           height={size.h}
           viewBox={`0 0 ${size.w} ${size.h}`}
@@ -124,7 +124,7 @@ export function Journey() {
         {/* the pencil at the leading edge — floats down into place to start */}
         <motion.div
           style={{ left: pencilLeft, top: pencilTop, rotate: pencilRotate }}
-          className="absolute z-20 -translate-x-1/2 -translate-y-full"
+          className="absolute z-20 hidden -translate-x-1/2 -translate-y-full sm:block"
         >
           <motion.span
             initial={{ y: -180, opacity: 0 }}
@@ -259,6 +259,31 @@ export function Journey() {
           </div>
         ))}
       </motion.div>
+
+      {/* See it in action — mobile only (desktop showcases it in the hero bg) */}
+      <div className="mx-auto mt-20 max-w-4xl sm:hidden">
+        <div className="text-center">
+          <h3 className="bubble text-3xl">
+            See it in <span className="text-rwm-yellow">action</span>
+          </h3>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="card-pop mt-8 overflow-hidden bg-white p-0"
+        >
+          <video
+            className="aspect-video h-auto w-full"
+            src="/assets/website-video.mp4"
+            poster="/assets/website-poster.jpg"
+            controls
+            playsInline
+            preload="metadata"
+          />
+        </motion.div>
+      </div>
     </section>
   );
 }
